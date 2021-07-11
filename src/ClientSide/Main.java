@@ -34,8 +34,6 @@ public class Main {
         thread.start();
 
         // THREAD: BOILERPLATE needed when running the GUI to make sure it's thread safe
-        javax.swing.SwingUtilities.invokeLater(() -> {
-            createAndShowGUI(data);
-        });
+        javax.swing.SwingUtilities.invokeLater(() -> createAndShowGUI(data));
     }
 }
