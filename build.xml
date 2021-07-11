@@ -1,0 +1,48 @@
+<project name="stonk-machine">
+
+    <!-- COMPILES THE SOURCE -->
+    <target name="compile">
+        <mkdir dir="target" />
+        <javac srcdir="src" destdir="target" includeantruntime="false" />
+    </target>
+
+    <!-- PATH TO LIBRARY JARS -->
+    <path id="junit.class.path">
+        <fileset dir="lib">
+            <include name="*.jar" />
+        </fileset>
+    </path>
+
+    <!-- RUN TESTS & GENERATE RESULTS -->
+    <target name="test" depends="compile">
+        <mkdir dir="testtarget" />
+        <mkdir dir="testresults" />
+        <javac srcdir="test" destdir="testtarget" includeantruntime="false">
+            <classpath refid="junit.class.path" />
+            <classpath location="target" />
+        </javac>
+        <junitlauncher printsummary="true" failureproperty="junit.failure">
+            <classpath refid="junit.class.path" />
+            <classpath location="target" />
+            <classpath location="testtarget" />
+            <testclasses outputdir="testresults">
+                <fileset dir="testtarget" includes="**/Test*.class" />
+                <listener type="legacy-plain" />
+            </testclasses>
+        </junitlauncher>
+        <fail if="junit.failure" />
+    </target>
+
+    <!-- GENERATE JAVADOC -->
+    <target name="documentation">
+        <mkdir dir="docs/javadoc" />
+        <javac srcdir="src" destdir="docs/javadoc" />
+    </target>
+
+    <!-- GENERATE STANDALONE PROGRAM (JAR) -->
+    <target name="jar" depends="compile, test">
+        <mkdir dir="artifacts" />
+        <jar jarfile="artifacts/stonk-machine.jar" basedir="target" manifest="jar-manifest.txt" />
+    </target>
+
+</project>
