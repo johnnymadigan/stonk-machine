@@ -123,11 +123,11 @@ public class OrderHistory implements ActionListener {
         sellTablesPanel.add(sellScrollPane);
 
         // Assign icons to tab buttons and refresh button
-        ImageIcon plusIcon = new ImageIcon("./Images/GUI images/plus_icon.PNG");
+        ImageIcon plusIcon = new ImageIcon("./img/gui-images/plus_icon.PNG");
         tabbedPane.addTab("Buy", plusIcon, buyTablesPanel);
-        ImageIcon minusIcon = new ImageIcon("./Images/GUI images/minus_icon.PNG");
+        ImageIcon minusIcon = new ImageIcon("./img/gui-images/minus_icon.PNG");
         tabbedPane.addTab("Sell", minusIcon, sellTablesPanel);
-        refresh.setIcon(new ImageIcon("./Images/GUI images/refresh_icon.png"));
+        refresh.setIcon(new ImageIcon("./img/gui-images/refresh_icon.png"));
 
         // Create panel refresh and cancel order buttons
         JPanel refreshPanel = new JPanel();

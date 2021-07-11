@@ -75,7 +75,7 @@ public class UserHome implements ActionListener{
         userHome.setPreferredSize(new Dimension(600,300));
 
         // Assign icon to refresh button
-        refresh.setIcon(new ImageIcon("./Images/GUI images/refresh_icon.png"));
+        refresh.setIcon(new ImageIcon("./img/gui-images/refresh_icon.png"));
 
         // Set the welcome label to show the current users name
         String usernameUC = user.getUsername().substring(0, 1).toUpperCase() + user.getUsername().substring(1); // uppercase

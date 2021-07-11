@@ -64,10 +64,10 @@ public class Shell implements ActionListener {
         shellPanel = new JPanel(); // reset
         shellPanel.setBackground(Color.decode(WHITE));
 
-        //homeButton = new JButton("", new ImageIcon("./Images/GUI images/home_icon.png"));
-        homeButton.setIcon(new ImageIcon("./Images/GUI images/home_icon.png"));
+        //homeButton = new JButton("", new ImageIcon("./img/gui-images/home_icon.png"));
+        homeButton.setIcon(new ImageIcon("./img/gui-images/home_icon.png"));
         homeButton.setToolTipText("Go to the home screen");
-        searchButton.setIcon(new ImageIcon("./Images/GUI images/search_icon.png"));
+        searchButton.setIcon(new ImageIcon("./img/gui-images/search_icon.png"));
         searchButton.setToolTipText("Go to the search screen");
         //c.orgUnitLabel.setText(source.getUnit(user).getName().toUpperCase()); needs fixing
 
