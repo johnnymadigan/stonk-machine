@@ -90,7 +90,7 @@ public class AssetPage implements ActionListener {
 
         // Insert graph panel into asset page panel
         JLabel graph = new JLabel();
-        graph.setIcon(new ImageIcon("./Images/GUI images/graph.png"));
+        graph.setIcon(new ImageIcon("./img/gui-images/graph.png"));
 
         // Insert buy/sell buttons at the bottom of the asset page panel
         JPanel orderButtons = new JPanel();

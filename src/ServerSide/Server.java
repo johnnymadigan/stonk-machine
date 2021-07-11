@@ -33,7 +33,7 @@ public class Server {
     public static void main(String[] args) throws IOException {
 
         Properties props = new Properties();
-        InputStream inputSettings = new FileInputStream("./Setup/ServerSettings.props");
+        InputStream inputSettings = new FileInputStream("./setup/ServerSettings.props");
 
         props.load(inputSettings);
         inputSettings.close();

@@ -80,7 +80,7 @@ public class LoginPage implements ActionListener {
         BufferedImage img;
         JLabel bannerLabel = new JLabel();
         try {
-            img = ImageIO.read(new File("./Images/GUI images/banner.png"));
+            img = ImageIO.read(new File("./img/gui-images/banner.png"));
             BufferedImage newImg = resizeImg(img, 350,62, false);
             bannerLabel = new JLabel(new ImageIcon(newImg));
         } catch (IOException e) {

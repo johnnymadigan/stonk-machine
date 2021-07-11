@@ -163,32 +163,32 @@ public class AdminHome implements ActionListener {
 
 
         // Refresh button icon for a more intuitive UI
-        ImageIcon refreshIcon = new ImageIcon("./Images/GUI images/refresh_icon.png");
+        ImageIcon refreshIcon = new ImageIcon("./img/gui-images/refresh_icon.png");
         refreshUserTable.setIcon(refreshIcon);
         refreshUnitTable.setIcon(refreshIcon);
         refreshAssetTable.setIcon(refreshIcon);
 
-        ImageIcon addIcon = new ImageIcon("./Images/GUI images/add_icon.png");
+        ImageIcon addIcon = new ImageIcon("./img/gui-images/add_icon.png");
         addAsset.setIcon(addIcon);
         addUnit.setIcon(addIcon);
         addUser.setIcon(addIcon);
         addAssetToUnit.setIcon(addIcon);
 
-        ImageIcon updateIcon = new ImageIcon("./Images/GUI images/update_icon.png");
+        ImageIcon updateIcon = new ImageIcon("./img/gui-images/update_icon.png");
         updateAsset.setIcon(updateIcon);
         updateUser.setIcon(updateIcon);
         adjustQuantity.setIcon(updateIcon);
         adjustBalance.setIcon(updateIcon);
 
-        ImageIcon deleteIcon = new ImageIcon("./Images/GUI images/delete_icon.png");
+        ImageIcon deleteIcon = new ImageIcon("./img/gui-images/delete_icon.png");
         deleteAsset.setIcon(deleteIcon);
         deleteUser.setIcon(deleteIcon);
         deleteUnit.setIcon(deleteIcon);
 
         // Add the tabs along with their name, icons, & content
-        ImageIcon usersIcon = new ImageIcon("./Images/GUI images/users_icon.png");
-        ImageIcon unitsIcon = new ImageIcon("./Images/GUI images/units_icon.png");
-        ImageIcon assetsIcon = new ImageIcon("./Images/GUI images/assets_icon.png");
+        ImageIcon usersIcon = new ImageIcon("./img/gui-images/users_icon.png");
+        ImageIcon unitsIcon = new ImageIcon("./img/gui-images/units_icon.png");
+        ImageIcon assetsIcon = new ImageIcon("./img/gui-images/assets_icon.png");
 
         tp.addTab("Users", usersIcon, usersTableTab);
         tp.addTab("Units", unitsIcon, unitsTableTab);

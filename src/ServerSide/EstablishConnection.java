@@ -19,7 +19,7 @@ public class EstablishConnection {
     public EstablishConnection() {
         try {
             Properties props = new Properties();
-            InputStream inputStream = new FileInputStream("./Setup/ServerSettings.props");
+            InputStream inputStream = new FileInputStream("./setup/ServerSettings.props");
 
             props.load(inputStream);
             inputStream.close();
