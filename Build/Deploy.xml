@@ -1,4 +1,4 @@
-<ant-project name="CAB302-Assignment-1" default="all">
+<ant-project name="stonk-machine" default="all">
     <property name="build" location="test"/>
     <property name="src" location="src"/>
 
