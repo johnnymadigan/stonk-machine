@@ -1,7 +1,7 @@
 # Please enter the server details below
 databaseProtocol=SQLite
 host=127.0.0.1
-port=3306
+port=12345
 schema=StonkMachine
 username=
 password=
