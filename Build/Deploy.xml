@@ -1,0 +1,9 @@
+<ant-project name="CAB302-Assignment-1" default="all">
+    <property name="build" location="test"/>
+    <property name="src" location="src"/>
+
+    <target name="init">
+        <tstamp/>
+        <mkdir dir="${build}"/>
+    </target>
+</ant-project>

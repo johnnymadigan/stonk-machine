@@ -1,0 +1,5 @@
+# Please enter the server details below
+jdbc.url=jdbc:sqlite:StonkMachine.db
+jdbc.schema=
+jdbc.username=
+jdbc.password=
