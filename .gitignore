@@ -58,7 +58,8 @@ fabric.properties
 .DS_Store
 # official db should be generated for each new user/group, only the mockDB stays
 StonkMachine.db
-# Ignore build output folders
+# Ignore ant build generated folders
 testresults
 testtarget
 target
+**/javadoc

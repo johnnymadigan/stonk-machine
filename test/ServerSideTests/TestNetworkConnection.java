@@ -9,11 +9,10 @@ import ClientSide.Unit;
 import ClientSide.User;
 import ServerSide.MockObjects;
 import ServerSide.NetworkConnection;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Nested;
-import org.junit.jupiter.api.Test;
+import ServerSide.Server;
+import org.junit.jupiter.api.*;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
@@ -34,6 +33,8 @@ public class TestNetworkConnection {
     NetworkConnection data = new NetworkConnection();
     MockObjects mock = new MockObjects(data);
 
+
+
     // BEFORE EACH TEST-------------------------------------------------------------------------------------------------
 
     /**
@@ -41,7 +42,7 @@ public class TestNetworkConnection {
      */
     @BeforeEach
     @DisplayName("Before each...")
-    public void before() {
+    public void before() throws IOException {
         mock.killMockDatabase();
         mock.createMockDatabase();
     }
