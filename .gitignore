@@ -52,8 +52,7 @@ fabric.properties
 # .idea/misc.xml
 # *.ipr
 
-#==================================================================
-### Additional ignores - JM
+#=================== Additional ignores - JM ===================
 # macOS
 .DS_Store
 # official db should be generated for each new user/group, only the mockDB stays
