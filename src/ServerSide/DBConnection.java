@@ -24,13 +24,13 @@ public class DBConnection {
      * Constructor initializes the connection.
      */
     private DBConnection() {
-        Properties props = new Properties();
-        InputStream in = null;
-
         try {
-            in = new FileInputStream("./Setup/ServerSettings.props");
-            props.load(in);
-            in.close();
+            Properties props = new Properties();
+            InputStream inputStream = this.getClass().getResourceAsStream("ServerSettings.props");
+            //InputStream inputStream = new FileInputStream("ServerSettings.props");
+
+            props.load(inputStream);
+            inputStream.close();
 
             // Get the server information from the Server Settings txt file
             // specify the data source, username and password
@@ -40,6 +40,8 @@ public class DBConnection {
             String username = props.getProperty("username");
             String password = props.getProperty("password");
             String schema = props.getProperty("schema");
+
+            //Class.forName("org.sqlite.JDBC");
 
             // get a connection
             instance = DriverManager.getConnection("jdbc:" + subprotocol + ":"+ schema + ".db", username,

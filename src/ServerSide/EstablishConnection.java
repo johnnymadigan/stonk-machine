@@ -19,7 +19,8 @@ public class EstablishConnection {
     public EstablishConnection() {
         try {
             Properties props = new Properties();
-            InputStream inputStream = new FileInputStream("./setup/ServerSettings.props");
+            InputStream inputStream = this.getClass().getResourceAsStream("ServerSettings.props");
+            //InputStream inputStream = new FileInputStream("ServerSettings.props");
 
             props.load(inputStream);
             inputStream.close();
@@ -41,6 +42,7 @@ public class EstablishConnection {
                 System.out.println("Socket successfully connected to " + host + " on port " + port);
             }
 
+            //
             OutputStream outputStream = socket.getOutputStream();
             ObjectOutputStream objectOutputStream = new ObjectOutputStream(outputStream);
             objectOutputStream.writeInt(89832);
