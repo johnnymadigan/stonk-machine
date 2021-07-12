@@ -2,8 +2,8 @@
 
     <!-- COMPILES THE SOURCE -->
     <target name="compile">
-        <mkdir dir="target" />
-        <javac srcdir="src" destdir="target" includeantruntime="false" />
+        <mkdir dir="ant-target" />
+        <javac srcdir="src" destdir="ant-target" includeantruntime="false" />
     </target>
 
     <!-- PATH TO LIBRARY JARS -->
@@ -15,18 +15,18 @@
 
     <!-- RUN TESTS & GENERATE RESULTS -->
     <target name="test" depends="compile">
-        <mkdir dir="testtarget" />
-        <mkdir dir="testresults" />
-        <javac srcdir="test" destdir="testtarget" includeantruntime="false">
+        <mkdir dir="ant-test-target" />
+        <mkdir dir="ant-test-results" />
+        <javac srcdir="test" destdir="ant-test-target" includeantruntime="false">
             <classpath refid="junit.class.path" />
-            <classpath location="target" />
+            <classpath location="ant-target" />
         </javac>
         <junitlauncher printsummary="true" failureproperty="junit.failure">
             <classpath refid="junit.class.path" />
-            <classpath location="target" />
-            <classpath location="testtarget" />
-            <testclasses outputdir="testresults">
-                <fileset dir="testtarget" includes="**/Test*.class" />
+            <classpath location="ant-target" />
+            <classpath location="ant-test-target" />
+            <testclasses outputdir="ant-test-results">
+                <fileset dir="ant-test-target" includes="**/Test*.class" />
                 <listener type="legacy-plain" />
             </testclasses>
         </junitlauncher>
@@ -39,10 +39,29 @@
         <javac srcdir="src" destdir="docs/javadoc" />
     </target>
 
-    <!-- GENERATE STANDALONE PROGRAM (JAR) -->
-    <target name="jar" depends="compile, test">
+    <!-- COPY SERVER SETUP TXT FILES TO TARGET -->
+    <target name="copy-properties">
+        <copy file="src/ServerSide/ServerSettings.props" todir="ant-target/ServerSide" />
+    </target>
+
+    <!-- COPY SQL-JDBC-DRIVER-JAR NEXT TO PROGRAM-JAR -->
+    <target name="copy-sql-jar">
         <mkdir dir="artifacts" />
-        <jar jarfile="artifacts/stonk-machine.jar" basedir="target" manifest="jar-manifest.txt" />
+        <copy file="lib/sqlite-jdbc-3.34.0.jar" todir="artifacts/lib" />
+    </target>
+
+    <!-- GENERATE STANDALONE PROGRAM (JAR) -->
+    <target name="jar" depends="compile, copy-properties, copy-sql-jar">
+        <mkdir dir="artifacts" />
+        <jar jarfile="artifacts/stonk-machine.jar" basedir="ant-target">
+            <!-- Creates a manifest file in the jar-->
+            <manifest>
+                <attribute name="Built-By" value="Johnny Madigan" />
+                <!-- lib folder must live beside stonk-machine.jar to access the driver -->
+                <attribute name="Class-Path" value="lib/sqlite-jdbc-3.34.0.jar"/>
+                <attribute name="Main-Class" value="ClientSide.Main"/>
+            </manifest>
+        </jar>
     </target>
 
 </project>
