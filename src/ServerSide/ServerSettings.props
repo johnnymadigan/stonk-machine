@@ -3,5 +3,5 @@ databaseProtocol=SQLite
 host=127.0.0.1
 port=12345
 schema=StonkMachine
-username=
-password=
+username=foobar
+password=x
