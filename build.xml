@@ -50,8 +50,20 @@
         <copy file="lib/sqlite-jdbc-3.34.0.jar" todir="artifacts/lib" />
     </target>
 
+    <!-- COPY GUI IMAGES TO TARGET -->
+    <target name="copy-gui-images">
+        <mkdir dir="ant-target/img" />
+        <mkdir dir="ant-target/img/gui-images" />
+        <copy todir="ant-target/img/gui-images">
+            <fileset dir="img/gui-images">
+                <include name="**/*.png" />
+                <include name="**/*.jpg" />
+            </fileset>
+        </copy>
+    </target>
+
     <!-- GENERATE STANDALONE PROGRAM (JAR) -->
-    <target name="jar" depends="compile, copy-properties, copy-sql-jar">
+    <target name="jar" depends="compile, copy-properties, copy-sql-jar, copy-gui-images">
         <mkdir dir="artifacts" />
         <jar jarfile="artifacts/stonk-machine.jar" basedir="ant-target">
             <!-- Creates a manifest file in the jar-->
