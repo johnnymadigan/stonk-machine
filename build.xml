@@ -1,6 +1,9 @@
-<project name="stonk-machine">
+<project name="stonk-machine" default="all">
 
-    <!-- COMPILES THE SOURCE -->
+    <!-- PERFORMS ALL TASKS -->
+    <target name="all" depends="clean, compile, documentation, test, jar" />
+
+    <!-- COMPILES THE PROGRAM'S SOURCE DIRECTORY -->
     <target name="compile">
         <mkdir dir="ant-target" />
         <javac srcdir="src" destdir="ant-target" includeantruntime="false" />
@@ -67,6 +70,7 @@
     <!-- CLEAN SLATE - DELETE ALL BUILD GENERATED DIRECTORIES -->
     <target name="clean">
         <delete dir="ant-target" quiet="true" />
+        <delete dir="docs/javadoc" quiet="true" />
         <delete dir="ant-test-target" quiet="true" />
         <delete dir="ant-test-results" quiet="true" />
         <delete dir="artifacts" quiet="true" />
