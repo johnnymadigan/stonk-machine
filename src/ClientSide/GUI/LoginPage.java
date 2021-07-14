@@ -81,8 +81,8 @@ public class LoginPage implements ActionListener {
         JLabel bannerLabel = new JLabel();
         try {
             img = ImageIO.read(new File("./img/gui-images/banner.png"));
-            BufferedImage newImg = resizeImg(img, 350,62, false);
-            bannerLabel = new JLabel(new ImageIcon(newImg));
+            //BufferedImage resizedImg = new ResizeImg().resizeImg(img, 350,62, false);
+            bannerLabel = new JLabel(new ImageIcon(img));
         } catch (IOException e) {
             bannerLabel.setText("STONK MACHINE");
         }
@@ -154,30 +154,6 @@ public class LoginPage implements ActionListener {
      */
     public CreateShell getShell() {
         return this.shell;
-    }
-
-    /**
-     * Resizes images
-     * @see <a href="https://stackoverflow.com/questions/244164/how-can-i-resize-an-image-using-java">From Stack Overflow</a>
-     * @param originalImg the original image
-     * @param width the new width
-     * @param height the new height
-     * @param preserveAlpha a.k.a. keep transparency
-     * @return the same image but resized
-     */
-    public BufferedImage resizeImg(Image originalImg, int width, int height, boolean preserveAlpha) {
-        //System.out.println("resizing...");
-        int imageType = preserveAlpha ? BufferedImage.TYPE_INT_RGB : BufferedImage.TYPE_INT_ARGB;
-        BufferedImage scaledBI = new BufferedImage(width, height, imageType);
-        Graphics2D g = scaledBI.createGraphics();
-        if (preserveAlpha) {
-            g.setComposite(AlphaComposite.Src);
-        }
-        g.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
-                RenderingHints.VALUE_ANTIALIAS_ON);
-        g.drawImage(originalImg, 0, 0, width, height, null);
-        g.dispose();
-        return scaledBI;
     }
 
     /**
