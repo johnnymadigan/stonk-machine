@@ -44,17 +44,16 @@
         <copy file="src/ServerSide/ServerSettings.props" todir="ant-target/ServerSide" />
     </target>
 
-    <!-- COPY SQL-JDBC-DRIVER-JAR NEXT TO PROGRAM-JAR -->
+    <!-- COPY SQL-JDBC-DRIVER-JAR NEXT TO PROGRAM JAR (ANT-TARGET) -->
     <target name="copy-sql-jar">
         <mkdir dir="artifacts" />
         <copy file="lib/sqlite-jdbc-3.34.0.jar" todir="artifacts/lib" />
     </target>
 
-    <!-- COPY GUI IMAGES TO TARGET -->
+    <!-- COPY GUI IMAGES NEXT TO PROGRAM JAR (ANT-TARGET) -->
     <target name="copy-gui-images">
-        <mkdir dir="ant-target/img" />
-        <mkdir dir="ant-target/img/gui-images" />
-        <copy todir="ant-target/img/gui-images">
+        <mkdir dir="artifacts" />
+        <copy todir="artifacts/img/gui-images">
             <fileset dir="img/gui-images">
                 <include name="**/*.png" />
                 <include name="**/*.jpg" />
