@@ -5,11 +5,11 @@
 
     <!-- COMPILES THE PROGRAM'S SOURCE DIRECTORY -->
     <target name="compile">
-        <mkdir dir="ant-target" />
+        <mkdir dir="target" />
         <!-- Copy server setup txt files to target -->
-        <copy file="src/ServerSide/ServerSettings.props" todir="ant-target/ServerSide" />
+        <copy file="src/main/java/ServerSide/ServerSettings.props" todir="target/ServerSide" />
         <!-- Compile -->
-        <javac srcdir="src" destdir="ant-target" includeantruntime="false" />
+        <javac srcdir="src/main/java" destdir="target" includeantruntime="false" />
     </target>
 
     <!-- PATH TO LIBRARY JARS -->
@@ -21,18 +21,18 @@
 
     <!-- RUN TESTS & GENERATE RESULTS -->
     <target name="test" depends="compile">
-        <mkdir dir="ant-test-target" />
-        <mkdir dir="ant-test-results" />
-        <javac srcdir="test" destdir="ant-test-target" includeantruntime="false">
+        <mkdir dir="target-test" />
+        <mkdir dir="target-results" />
+        <javac srcdir="src/test/java" destdir="target-test" includeantruntime="false">
             <classpath refid="junit.class.path" />
-            <classpath location="ant-target" />
+            <classpath location="target" />
         </javac>
         <junitlauncher printsummary="true" failureproperty="junit.failure">
             <classpath refid="junit.class.path" />
-            <classpath location="ant-target" />
-            <classpath location="ant-test-target" />
-            <testclasses outputdir="ant-test-results">
-                <fileset dir="ant-test-target" includes="**/Test*.class" />
+            <classpath location="target" />
+            <classpath location="target-test" />
+            <testclasses outputdir="target-results">
+                <fileset dir="target-test" includes="**/Test*.class" />
                 <listener type="legacy-plain" />
             </testclasses>
         </junitlauncher>
@@ -48,16 +48,16 @@
     <!-- GENERATE STANDALONE PROGRAM (JAR) -->
     <target name="jar" depends="compile, test">
         <mkdir dir="artifacts" />
-        <!-- Copy SQL driver next to program jar (ant-target) -->
+        <!-- Copy SQL driver next to program jar (target) -->
         <copy file="lib/sqlite-jdbc-3.34.0.jar" todir="artifacts/lib" />
-        <!-- Copy gui images next to program jar (ant-target) -->
+        <!-- Copy gui images next to program jar (target) -->
         <copy todir="artifacts/img/gui-images">
             <fileset dir="img/gui-images">
                 <include name="**/*.png" />
                 <include name="**/*.jpg" />
             </fileset>
         </copy>
-        <jar jarfile="artifacts/stonk-machine.jar" basedir="ant-target">
+        <jar jarfile="artifacts/stonk-machine.jar" basedir="target">
             <!-- Creates a manifest file in the jar-->
             <manifest>
                 <attribute name="Built-By" value="Johnny Madigan" />
@@ -70,10 +70,10 @@
 
     <!-- CLEAN SLATE - DELETE ALL BUILD GENERATED DIRECTORIES -->
     <target name="clean">
-        <delete dir="ant-target" quiet="true" />
+        <delete dir="target" quiet="true" />
         <delete dir="docs/javadoc" quiet="true" />
-        <delete dir="ant-test-target" quiet="true" />
-        <delete dir="ant-test-results" quiet="true" />
+        <delete dir="target-test" quiet="true" />
+        <delete dir="target-results" quiet="true" />
         <delete dir="artifacts" quiet="true" />
     </target>
 

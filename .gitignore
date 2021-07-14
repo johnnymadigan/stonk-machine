@@ -58,7 +58,7 @@ fabric.properties
 # official db should be generated for each new user/group, only the mockDB stays
 StonkMachine.db
 # Ignore ant build generated folders
-ant-test-results
-ant-test-target
-ant-target
+target-results
+target-test
+target
 **/javadoc
