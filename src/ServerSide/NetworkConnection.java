@@ -263,7 +263,7 @@ public class NetworkConnection implements DatabaseSource {
             if (ex instanceof AlreadyExists) {
                 System.out.println("Default account already in the database");
             }
-            ex.printStackTrace();
+            // ex.printStackTrace();
         }
     }
 
