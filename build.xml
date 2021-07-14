@@ -6,6 +6,9 @@
     <!-- COMPILES THE PROGRAM'S SOURCE DIRECTORY -->
     <target name="compile">
         <mkdir dir="ant-target" />
+        <!-- Copy server setup txt files to target -->
+        <copy file="src/ServerSide/ServerSettings.props" todir="ant-target/ServerSide" />
+        <!-- Compile -->
         <javac srcdir="src" destdir="ant-target" includeantruntime="false" />
     </target>
 
@@ -45,8 +48,6 @@
     <!-- GENERATE STANDALONE PROGRAM (JAR) -->
     <target name="jar" depends="compile, test">
         <mkdir dir="artifacts" />
-        <!-- Copy server setup txt files to target -->
-        <copy file="src/ServerSide/ServerSettings.props" todir="ant-target/ServerSide" />
         <!-- Copy SQL driver next to program jar (ant-target) -->
         <copy file="lib/sqlite-jdbc-3.34.0.jar" todir="artifacts/lib" />
         <!-- Copy gui images next to program jar (ant-target) -->
