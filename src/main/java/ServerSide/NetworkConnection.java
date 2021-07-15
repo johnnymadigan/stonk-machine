@@ -2,7 +2,7 @@ package ServerSide;
 
 import ClientSide.*;
 import ClientSide.Exceptions.*;
-import common.*;
+import common.DatabaseSource;
 
 import java.sql.*;
 import java.time.LocalDateTime;
@@ -12,7 +12,7 @@ import java.util.*;
 /**
  * The core SQL commands to construct the database and where
  * the DatabaseSource interface methods are defined.
- * @author Alistair Ridge, Johnny Madigan and Scott Peachey
+ * @author Johnny Madigan, Scott Peachey and Alistair Ridge
  */
 public class NetworkConnection implements DatabaseSource {
     // Network Connection ----------------------------------------------------------------------------------------------
@@ -155,7 +155,7 @@ public class NetworkConnection implements DatabaseSource {
     private PreparedStatement getAllUnitNames;
 
     // Asset prepared statements
-    private PreparedStatement getAllAssetDecs;
+    private PreparedStatement getAllAssetDesc;
     private PreparedStatement getAllAssets;
     private PreparedStatement getAsset;
     private PreparedStatement addAsset;
@@ -228,7 +228,7 @@ public class NetworkConnection implements DatabaseSource {
             getAllUnitNames = connection.prepareStatement(GET_ALL_UNITNAMES);
 
             // Assets Table: Assign SQL command with prepared statement
-            getAllAssetDecs = connection.prepareStatement(GET_ALL_ASSET_DESC);
+            getAllAssetDesc = connection.prepareStatement(GET_ALL_ASSET_DESC);
             getAllAssets = connection.prepareStatement(GET_ALL_ASSETS);
             getAsset = connection.prepareStatement(GET_ASSET);
             addAsset = connection.prepareStatement(INSERT_ASSET);
@@ -567,8 +567,8 @@ public class NetworkConnection implements DatabaseSource {
     /**
      * Method used to add an order to the database.
      * @param order The order that is being placed
-     * @throws OrderException
-     * @throws DoesNotExist
+     * @throws OrderException if there is any errors with the order
+     * @throws DoesNotExist if asset does not exist
      */
     @Override
     public void addOrder(Order order) throws OrderException, DoesNotExist {
@@ -579,12 +579,14 @@ public class NetworkConnection implements DatabaseSource {
             availableID.add(asset.getId());
         }
 
-        HashMap<Asset, Integer> unitAssets = order.unit.getAssets();
+        HashMap<Asset, Integer> unitAssets = getUnitsAssets(order.unit); //order.unit.getAssets();
+        //HashMap<Asset, Integer> unitAssets = order.unit.getAssets();
         HashMap<Integer, Integer> unitAssetIDs = new HashMap<>();
 
         for (Asset asset : unitAssets.keySet()) {
             unitAssetIDs.put(asset.getId(), unitAssets.get(asset));
         }
+        System.out.println(unitAssetIDs);
 
         String placedOn = order.datePlaced.format(formatter);
 
@@ -594,8 +596,7 @@ public class NetworkConnection implements DatabaseSource {
         //System.out.println("Asset is in database: " + availableID.contains(order.asset.getId()));
         //System.out.println("Asset in unit inventory: " + unitAssetIDs.containsKey(order.asset.getId()));
 
-
-        if (order.isBuy) {
+        if (order.isBuy) { // IF BUY ORDER
             if (availableID.contains(order.asset.getId())) {
                 if (totalPrice <= funds) {
                     // Add buy order to the order queue to be reconciled
@@ -620,7 +621,7 @@ public class NetworkConnection implements DatabaseSource {
                 System.out.println("Asset not in database");
                 throw new DoesNotExist("Asset has not yet been added to the database!");
             }
-        } else {
+        } else { // IF SELL ORDER
             if (unitAssetIDs.containsKey(order.asset.getId())) {
                 if (unitAssetIDs.get(order.asset.getId()) >= order.qty) {
                     // Add sell order to the order queue to be reconciled
@@ -780,7 +781,7 @@ public class NetworkConnection implements DatabaseSource {
     /**
      * Method used to get the outstanding orders for a specified unit.
      * @param unit The unit to get the outstanding orders for
-     * @return
+     * @return list of outstanding orders
      */
     @Override
     public ArrayList<Order> getUnitOrderHistory(Unit unit) {
@@ -806,6 +807,39 @@ public class NetworkConnection implements DatabaseSource {
             ex.printStackTrace();
         }
         return orders;
+    };
+
+
+    /**
+     * Method used to get the historical price for a specified asset.
+     * @param assetID The asset to get price history of
+     * @return most recent 10 prices (sell orders)
+     */
+    @Override
+    public ArrayList<Integer> getAssetOrderHistory(String assetID) {
+        ArrayList<Integer> prices = new ArrayList<>();
+        ResultSet rs;
+        try {
+            getOrderHistory.setString(1, assetID);
+            rs = getOrderHistory.executeQuery();
+            while (rs.next()) {
+                prices.add(rs.getInt("price")); // add the prices
+            }
+
+            // ensure there are exactly 15 prices
+            while (prices.size() < 15) {
+                prices.add(0);
+            }
+
+            // ensure there are exactly 15 prices
+            while (prices.size() > 15) {
+                prices.remove(prices.size() - 1);
+            }
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return prices;
     };
 
     // Unit methods ----------------------------------------------------------------------------------------------------
@@ -844,7 +878,7 @@ public class NetworkConnection implements DatabaseSource {
             u = new Unit(name, credits, assets);
 
         } catch (SQLException | IllegalString | InvalidAmount ex) {
-            System.out.println("unit is null");
+            System.out.println("A user's unit is null");
             //ex.printStackTrace();
         }
 
