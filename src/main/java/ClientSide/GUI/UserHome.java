@@ -62,6 +62,9 @@ public class UserHome implements ActionListener{
         currentOrdersButton.addActionListener(this);
         refresh.addActionListener(this);
 
+        // Refresh
+        updateUserHomeTable();
+        updateCredits();
         createContent(); // fill the order history content panel
     }
 
@@ -188,7 +191,7 @@ public class UserHome implements ActionListener{
      * Gets the current amount of credits and updates the label
      */
     public void updateCredits() {
-        creditsLabel.setText("Credits: " + unit.getCredits().toString()); // this works
+        creditsLabel.setText("Credits: $" + unit.getCredits().toString()); // this works
     }
 
     /**

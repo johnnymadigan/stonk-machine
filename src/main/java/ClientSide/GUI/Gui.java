@@ -76,7 +76,6 @@ public class Gui {
 
         // 'File' drop down menu
         JMenu fileMenu = new JMenu("File");
-        fileMenu.add("Preference");
         fileMenu.add(logoutMenu);
         fileMenu.add(exitMenu);
         menuBar.add(fileMenu);

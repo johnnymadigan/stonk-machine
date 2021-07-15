@@ -24,7 +24,7 @@ public class LoginPage implements ActionListener {
     private final JFrame mainFrame;
     private final NetworkConnection data;
 
-    public final String DARKGREY = "#4D4D4D";
+    public final Color backgroundColour = new Color(146, 138, 136, 180);
 
     // Login panel & widgets
     public JPanel loginPanel = new JPanel(new GridBagLayout());
@@ -59,7 +59,7 @@ public class LoginPage implements ActionListener {
         JPanel loginBox = new JPanel();
         JPanel login = new JPanel(new GridBagLayout());
 
-        loginPanel.setBackground(Color.decode(DARKGREY));
+        loginPanel.setBackground(backgroundColour);
 
         loginBox.setLayout(new BoxLayout(loginBox, BoxLayout.PAGE_AXIS));
         loginBox.setBorder(BorderFactory.createEtchedBorder(EtchedBorder.RAISED));
@@ -88,7 +88,7 @@ public class LoginPage implements ActionListener {
         }
 
         // Position the interactive components (text fields, buttons etc)
-        cords.insets =new Insets(5,5,5,5);
+        cords.insets = new Insets(5,5,5,5);
         cords.gridy = 1;
         cords.gridx = -1;
         cords.gridwidth = 1;
@@ -112,6 +112,21 @@ public class LoginPage implements ActionListener {
 
         cords.gridy++; // warning message is always below login button
         login.add(invalidLabel, cords);
+
+
+        // Extras underneath login portal
+        Icon bonusIcon = new ImageIcon("./img/gui-images/piggy-bank.png");
+        JLabel iconLabel = new JLabel(bonusIcon);
+        cords.gridy++;
+        cords.gridy++;
+        cords.gridy++;
+        loginPanel.add(iconLabel, cords);
+
+        JLabel credits = new JLabel("An electronic trading app by " +
+                "Johnny Madigan, Scott Peachey, and Alistair Ridge");
+        credits.setForeground(Color.GRAY);
+        cords.gridy++;
+        loginPanel.add(credits, cords);
 
         // Add panels together
         loginBox.add(bannerLabel);
@@ -173,7 +188,7 @@ public class LoginPage implements ActionListener {
             } else if (!(this.user == null)) {
                 passwordInput.setText("");  // clear password field
                 usernameInput.setText(""); // clear username field
-                invalidLabel.setText("");
+                invalidLabel.setText(" ");
                 shell = new CreateShell(this.user, this.mainFrame, this.data);
                 shell.GoHome();
             }
