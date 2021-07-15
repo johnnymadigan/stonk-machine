@@ -4,36 +4,42 @@ import ClientSide.User;
 import ServerSide.NetworkConnection;
 
 import javax.swing.*;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 /**
  * The asset page has been designed to host the graphical representation of the
- * selected asset's price history. The idea was that graph would show the average
- * price for intervals that could be changed with the buttons Days, Weeks, Months and
- * Years. Currently the page functions as a fork where the user can decide to either
- * buy or sell the asset, which was selected in the user home. This page can also be
- * accessed by searching an asset ID with the Search button found in the top right corner.
- * @author Scott Peachey
+ * selected asset's price history. The idea was that graph would show the latest
+ * prices a certain asset has been sold at. Intervals can be changed with the slider
+ * to show more or less prices. Currently the page functions as a fork where the user
+ * can decide to either buy or sell the asset, which was selected in the user home.
+ * This page can also be accessed by searching an asset ID with the Search button
+ * found in the top right corner.
+ * @author Johnny Madigan
  */
-public class AssetPage implements ActionListener {
+public class AssetPage implements ActionListener, ChangeListener {
 
     // Instance variables
     private JFrame frame;
-    private NetworkConnection server;
+    private NetworkConnection data;
     private String assetID;
     private User user;
     private CreateShell shell;
     public JPanel content;
 
     // Shell components for the asset page
-    public JButton daysButton = new JButton("Days");
-    public JButton weeksButton = new JButton("Weeks");
-    public JButton monthsButton = new JButton("Months");
-    public JButton yearsButton = new JButton("Years");
-    public JButton buyButton = new JButton("<- Buy Asset");
-    public JButton sellButton = new JButton("Sell Asset ->");
+    public JButton buyButton = new JButton("Buy Asset");
+    public JButton sellButton = new JButton("Sell Asset");
+
+    // Graph data & controls
+    public JSlider adjustPrices = new JSlider(2, 15);
+    public JLabel adjustPricesLabel = new JLabel("Adjust price history: ");
+    public GraphPanel graph = new GraphPanel();
+    public ArrayList<Integer> prices = new ArrayList<>();
 
     /**
      * Constructor for the asset page
@@ -41,19 +47,20 @@ public class AssetPage implements ActionListener {
      * @param user The currently logged-in user for the session
      * @param shell The GUI shell that the contents of this page will be displayed in
      * @param frame The main Java Swing frame
-     * @param server The network data interface methods to carry over
+     * @param data The network data interface methods to carry over
      */
-    public AssetPage(String asset, User user, CreateShell shell, JFrame frame, NetworkConnection server) {
+    public AssetPage(String asset, User user, CreateShell shell, JFrame frame, NetworkConnection data) {
         // Assign the following to keep things in sync
         this.assetID = asset;
         this.user = user;
         this.shell = shell;
         this.frame = frame;
-        this.server = server;
+        this.data = data;
 
         // Action listeners for buy and sell buttons
         buyButton.addActionListener(this);
         sellButton.addActionListener(this);
+        adjustPrices.addChangeListener(this);
 
         createContent(); // fill the admin home content panel
     }
@@ -72,10 +79,8 @@ public class AssetPage implements ActionListener {
 
         // Insert the interval buttons at the top of the asset page panel
         JPanel intervalButtons = new JPanel();
-        intervalButtons.add(daysButton);
-        intervalButtons.add(weeksButton);
-        intervalButtons.add(monthsButton);
-        intervalButtons.add(yearsButton);
+        intervalButtons.add(adjustPricesLabel);
+        intervalButtons.add(adjustPrices);
 
         // Check if current user is in a unit
         if (user.getUnit() == null) {
@@ -89,8 +94,9 @@ public class AssetPage implements ActionListener {
         }
 
         // Insert graph panel into asset page panel
-        JLabel graph = new JLabel();
-        graph.setIcon(new ImageIcon("./img/gui-images/graph.png"));
+        prices = data.getAssetOrderHistory(assetID);
+        graph.setValues(prices);
+        System.out.println(prices); // print prices to terminal
 
         // Insert buy/sell buttons at the bottom of the asset page panel
         JPanel orderButtons = new JPanel();
@@ -108,6 +114,13 @@ public class AssetPage implements ActionListener {
      */
     public JPanel getPanel() {
         return this.content;
+    }
+
+    public void stateChanged(ChangeEvent e) {
+        JSlider source = (JSlider)e.getSource();
+        int pricesToShow = source.getValue();
+        ArrayList<Integer> newPrices = new ArrayList<>(prices.subList(0, pricesToShow));
+        graph.setValues(newPrices);
     }
 
     /**

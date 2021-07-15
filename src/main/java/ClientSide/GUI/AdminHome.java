@@ -160,8 +160,6 @@ public class AdminHome implements ActionListener {
         editAssetControls.add(updateAsset);
         assetsTableTab.add(editAssetControls);
 
-
-
         // Refresh button icon for a more intuitive UI
         ImageIcon refreshIcon = new ImageIcon("./img/gui-images/refresh_icon.png");
         refreshUserTable.setIcon(refreshIcon);
@@ -184,6 +182,8 @@ public class AdminHome implements ActionListener {
         deleteAsset.setIcon(deleteIcon);
         deleteUser.setIcon(deleteIcon);
         deleteUnit.setIcon(deleteIcon);
+        removeAssetFromUnit.setIcon(deleteIcon);
+        removeUserFromUnit.setIcon(deleteIcon);
 
         // Add the tabs along with their name, icons, & content
         ImageIcon usersIcon = new ImageIcon("./img/gui-images/users_icon.png");
