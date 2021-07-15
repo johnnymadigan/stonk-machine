@@ -155,6 +155,13 @@ public interface DatabaseSource {
      */
     ArrayList<Order> getUnitOrderHistory(Unit unit);
 
+    /**
+     * Method used to get the historical price for a specified asset.
+     * @param assetID The asset to get price history of
+     * @return most recent 10 prices (sell orders)
+     */
+    ArrayList<Integer> getAssetOrderHistory(String assetID);
+
     // UNIT METHODS ----------------------------------------------------------------------------------------------------
 
     /**
