@@ -129,6 +129,8 @@ public class ReconcileTrades implements Runnable {
                                 so.qty = sellQty - bo.qty;
 
                                 if (so.qty == 0) {
+                                    System.out.println("\nAll of an asset's orders have been reconciled...\n" +
+                                            "Now cancelling these orders as they are complete");
                                     this.data.cancelOrder(so); // Cancel the sell order if it has no more assets to sell
                                     this.sells.remove(so); // Remove the empty order from the checking list
                                 }
