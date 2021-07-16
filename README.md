@@ -7,8 +7,6 @@
 ![SQLite](https://img.shields.io/badge/SQLite%20JDBC-3.34.0-blue?style=plastic&logo=SQLite)
 ![Apache Ant](https://img.shields.io/badge/Apache%20Ant-critical?style=plastic&logo=Apache%20Ant)
 
-
-
 <p align="center">𝔍𝔬𝔥𝔫𝔫𝔶 𝔐𝔞𝔡𝔦𝔤𝔞𝔫 🐰</p>
 
 - [About](#about)
@@ -45,21 +43,6 @@ The demonstration below shows a brief look at the admin pages with control panel
 ![run via terminal](/img/readme-images/run-via-terminal.gif)
 
 # How to build a new jar via *Ant* in *IntelliJ*
-
-# Diagrams
-
-## UML Class Diagram
-
-## UI Visual Paradigm
-
-## Database ERD
-
-# Dependencies
-IntelliJ community ed, IntelliJ SDK, project strucutre, JUnit5.7, SQLite database
-
-
-------------------
-
 INSTRUCTIONS:
 
 - Please download "IntelliJ IDEA Community Edition" to run our app https://www.jetbrains.com/idea/download/#section=windows
@@ -102,3 +85,21 @@ TESTING WITH A FAKE DATABASE - OPTIONAL
 - Save and close file
 - Run via the instructions above
 - To revert, change SCHEMA to "StonkMachine"
+
+# Diagrams
+## UML Class Diagram
+![UML Class Diagram](/docs/diagrams/Class-Diagram-V3.png)
+
+## UI Visual Paradigm
+![UI Visual Paradigm](/docs/diagrams/GUI-Diagram-V2.jpg)
+
+## Database ERD
+![Database ERD](/docs/diagrams/Database-ERD.png)
+
+# Dependencies
+This app was developed using the *JetBrains' IntelliJ IDE*. If you want to run the *Ant* build script, please open the project folder *"stonk-machine"* using *IntelliJ*. Once in *IntelliJ*, please go to the Project Structure window and set the project SDK to *Amazon Correto 15* and the project language level to *"15 - Text blocks"* as this is needed to compile. Still within the Project Structure window, goto the Libraries section and you will also need to add the following from *Maven*:
+
+- org.junit.platform:junit-platform-launcher:1.7.0
+- org.xerial:sqlite-jdbc:3.34.0
+
+Finally, you may need to import JUnit 5.7. FIX THIS
