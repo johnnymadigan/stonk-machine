@@ -1,5 +1,6 @@
 package ClientSide.GUI;
 
+import ClientSide.Asset;
 import ClientSide.User;
 import ServerSide.NetworkConnection;
 
@@ -78,9 +79,22 @@ public class AssetPage implements ActionListener, ChangeListener {
         content.setBackground(Color.DARK_GRAY);
 
         // Insert the interval buttons at the top of the asset page panel
+        JPanel assetInfo = new JPanel();
+        assetInfo.setLayout(new BoxLayout(assetInfo, BoxLayout.PAGE_AXIS));
+        // also add asset name
+        Asset a = data.getAsset(Integer.parseInt(assetID));
+        JLabel assetLabel = new JLabel(a.getDescription());
+        assetLabel.setForeground(Color.GRAY);
+        assetLabel.setFont(new Font("Courier New", Font.ITALIC, 21));
+
+
         JPanel intervalButtons = new JPanel();
         intervalButtons.add(adjustPricesLabel);
         intervalButtons.add(adjustPrices);
+
+        assetInfo.add(assetLabel);
+        assetInfo.add(intervalButtons);
+
 
         // Check if current user is in a unit
         if (user.getUnit() == null) {
@@ -93,7 +107,7 @@ public class AssetPage implements ActionListener, ChangeListener {
             sellButton.setEnabled(true);
         }
 
-        // Insert graph panel into asset page panel
+        // Insert GRAPH panel into asset page panel
         prices = data.getAssetOrderHistory(assetID);
         graph.setValues(prices);
         System.out.println(prices); // print prices to terminal
@@ -102,7 +116,7 @@ public class AssetPage implements ActionListener, ChangeListener {
         JPanel orderButtons = new JPanel();
         orderButtons.add(buyButton);
         orderButtons.add(sellButton);
-        content.add(intervalButtons, BorderLayout.NORTH);
+        content.add(assetInfo, BorderLayout.NORTH);
         content.add(graph, BorderLayout.CENTER);
         content.add(orderButtons, BorderLayout.SOUTH);
     }
