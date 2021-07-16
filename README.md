@@ -6,17 +6,47 @@
 <p align="center">𝔍𝔬𝔥𝔫𝔫𝔶 𝔐𝔞𝔡𝔦𝔤𝔞𝔫 🐰</p>
 
 - [About](#about)
-- [Usage](#usage)
-- [How to run via the terminal](#how-to-run-via-the-terminal)
-- [How to run via *Visual Studio Code*](#how-to-run-via-visual-studio-code)
-- [Call Graph](#call-graph)
+- [How to run jar via the terminal](#how-to-run-via-the-terminal)
+- [How to build a new jar via *Ant* in *IntelliJ*](#how-to-build-a-new-jar-via-ant-in-intellij)
+- [Diagrams](#diagrams)
+  - [UML Class Diagram](#uml-class-diagram)
+  - [UI Visual Paradigm](#ui-visual-paradigm)
+  - [Database ERD](#database-erd)
 - [Dependencies](#dependencies)
 
 # About
-### SUB TITLE
-A Graph Theory project that demonstrates...
+### A solo extension on my team's software development project: an electronic trading app
 
-![project animation](/img/readme-images/demonstration.gif)
+<p align="center">Team: Johnny Madigan, Scott Peachey, and Alistair Ridge</p>
+
+A software development project focusing on delivering an application fulfilling a client's needs. The project was initially developed by a team of 3 using an Agile approach with an emphasis on Test-Driven-Development.
+
+My team and I were contracted to develop a *"client-server system for electronic trading of virtual assets within their organisation"*. Given a series of user stories, we've extracted a list of requirements prioritised using the MoSCoW method. We then put together a detailed design document of the system along with 3 diagrams (UML class diagram, UI visual paradigm, and a database ERD). As we developed our app using *Java* and *IntelliJ*, we incrementally tested our features with black box and glass box testing.
+
+Some of the features I worked on...
+
+Some of the additional features I worked on...
+
+![project animation](/img/readme-images/ezgif-demonstration.gif)
+
+# How to run via the terminal
+
+# How to build a new jar via *Ant* in *IntelliJ*
+
+# Diagrams
+
+## UML Class Diagram
+
+## UI Visual Paradigm
+
+## Database ERD
+
+# Dependencies
+IntelliJ community ed, IntelliJ SDK, project strucutre, JUnit5.7, SQLite database
+
+
+------------------
+
 
 By Alistair Ridge, Johnny Madigan & Scott Peachey
 
