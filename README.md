@@ -37,6 +37,13 @@ The demonstration below shows a brief look at the admin pages with control panel
 
 # How to run via the terminal
 
+- Launch your OS' terminal.
+- Navigate into the project directory called *"stonk-machine"* with the `cd` command.
+- Navigate into the *"artifacts"* folder.
+- Type `java -jar stonk-machine.jar` then press the <kbd>enter</kbd> or <kbd>return</kbd> key to launch the program.
+
+![run via terminal](/img/readme-images/run-via-terminal.gif)
+
 # How to build a new jar via *Ant* in *IntelliJ*
 
 # Diagrams
@@ -52,10 +59,6 @@ IntelliJ community ed, IntelliJ SDK, project strucutre, JUnit5.7, SQLite databas
 
 
 ------------------
-
-
-By Alistair Ridge, Johnny Madigan & Scott Peachey
-
 
 INSTRUCTIONS:
 
