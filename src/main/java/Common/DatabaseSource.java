@@ -127,14 +127,14 @@ public interface DatabaseSource {
      * @return Array list containing the unit's outstanding orders
      * @param unit The unit that's orders are being collected
      */
-    public ArrayList<Order> getUnitOrders(Unit unit);
+    ArrayList<Order> getUnitOrders(Unit unit);
 
     /**
      * Method used to get outstanding orders of a certain asset from the orders Database
      * @return Array list containing the outstanding orders involving a given asset
      * @param asset The asset that's orders are being collected
      */
-    public ArrayList<Order> getAssetOrders(Asset asset);
+    ArrayList<Order> getAssetOrders(Asset asset);
 
     /**
      * Method used to move an order to the order history table in the database and remove it from the order table

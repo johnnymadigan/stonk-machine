@@ -27,12 +27,8 @@ public class User {
      * @throws IllegalString Throw an exception it the password is not a valid string
      */
     public User(String username, String password, String salt, Unit unit, boolean access) throws IllegalString {
-        String usernameLC;
-
         // Check the username is valid
-        if (username.matches("[a-zA-Z]+") && !(username.contains(" "))) {
-            usernameLC = username.toLowerCase();
-        } else {
+        if (!(username.matches("[a-zA-Z]+") && !(username.contains(" ")))) {
             throw new IllegalString("Username '%s' must be letters only. Please try again.", username);
         }
 

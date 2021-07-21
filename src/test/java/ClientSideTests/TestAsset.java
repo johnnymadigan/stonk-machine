@@ -1,10 +1,9 @@
 package ClientSideTests;
 
 import ClientSide.Asset;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
-import static org.junit.jupiter.api.Assertions.assertAll;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * The following tests are used to test the functionality of the Assets class.

@@ -1,7 +1,6 @@
 package ServerSide;
 
 import javax.swing.*;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.ObjectInputStream;
@@ -38,7 +37,9 @@ public class Server {
         //InputStream inputSettings = new FileInputStream("ServerSettings.props");
 
         props.load(inputSettings);
-        inputSettings.close();
+        if (inputSettings != null) {
+            inputSettings.close();
+        }
 
         // Get the port & default username from the Server Settings txt file
         String port = props.getProperty("port");

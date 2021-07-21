@@ -23,7 +23,9 @@ public class EstablishConnection {
             //InputStream inputStream = new FileInputStream("ServerSettings.props");
 
             props.load(inputStream);
-            inputStream.close();
+            if (inputStream != null) {
+                inputStream.close();
+            }
 
             // Get the server information from the Server Settings txt file
             String host = props.getProperty("host");
@@ -31,18 +33,13 @@ public class EstablishConnection {
             username = props.getProperty("username");
             password = props.getProperty("password");
 
-            // get a connection
-            // Network Interaction ---------------------------------------------------------------------------------------------
-            /*
-    Creates a network connection and sends the prepared statements ove to the DB.
-     */
             Socket socket = new Socket(host, Integer.parseInt(port));
 
             if (socket.isConnected()) {
                 System.out.println("Socket successfully connected to " + host + " on port " + port);
             }
 
-            //
+            // Sample output stream - need to replace one day
             OutputStream outputStream = socket.getOutputStream();
             ObjectOutputStream objectOutputStream = new ObjectOutputStream(outputStream);
             objectOutputStream.writeInt(89832);
@@ -53,7 +50,6 @@ public class EstablishConnection {
             System.out.println(ex.getMessage());
         }
     }
-
 
     /**
      * Getter for the configured username
