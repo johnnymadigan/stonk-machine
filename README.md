@@ -71,7 +71,7 @@ The demonstration below shows a brief look at the admin pages with control panel
 - First backup your current database by saving a copy of it somewhere else.
 - In your file manager, open the project directory called *"stonk-machine"*.
 - You will see a mock database called *"MockStonkMachine.db"*.
-- Rename this database to *"StonkMachine.db"* instead and replace/place inside the *"Artifacts"* folder beside the JAR.
+- Rename this database to *"StonkMachine.db"* instead and replace/place inside the *"artifacts"* folder beside the JAR.
 
 ## Troubleshooting
 This section is for rare cases / reconfiguring *IntelliJ* for future developments on this project.
