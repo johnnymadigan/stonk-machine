@@ -43,39 +43,30 @@ The demonstration below shows a brief look at the admin pages with control panel
 ![run via terminal](/img/readme-images/run-via-terminal.gif)
 
 # How to build a new jar via *Ant* in *IntelliJ*
+## Configure Server Settings
+- In your file manager, open the project directory called *"stonk-machine"* then navigate to the server settings properties file `src > main > java > ServerSide > ServerSettings.props`. Open the file in your preferred text editor.
 
-- Download [JetBrain's IntelliJ IDEA](https://www.jetbrains.com/idea/download/#section=windows), *Community Edition* is free.
-- In your file manager, open the project directory called *"stonk-machine"* then .
+![find and edit properties file](/img/readme-images/nav-to-props.gif)
 
-        CAB302_Assignment-1 > Setup > ServerSettings.props
-
-- Open this file in your preferred text editor
 - (OPTIONAL) Change PORT/HOST details if necessary
 - (REQUIRED) Setup initial admin user credentials
     - Set your preferred USERNAME
     - Set your preferred PASSWORD
 - Save and close file
 
+## Build - Clean, Compile, Test, Document, and Create Executable Jar
+- Download [JetBrain's IntelliJ IDEA](https://www.jetbrains.com/idea/download/#section=windows), *Community Edition* is free.
+- Open the project directory called *"stonk-machine"* inside *IntelliJ*.
+- Open the *Ant* window `View > Tool Windows > Ant`
+- Click ***all*** to run the entire build script.
+- Refer back to [*"How to run jar via the terminal"*](#how-to-run-via-the-terminal) to run the new jar.
 
-- Launch IntelliJ IDEA CE
-- Open the 'CAB302_StonkMachine' folder inside IntelliJ
-- Specify a project SDK, we recommend Java version 15
-  
-      File > Project Structure > Project SDK
-  
-- Select Project Language Level 15 - Text blocks
-- Navigate to Libraries in the left menu of the Project Structure
-- Select the sqlite-jdbc library and right click
-- Select add to modules
-- Select the CAB302-Assignment-1 module and click ok
-- Click 'Build Project' (^+F9 for Windows & Cmd+F9 for Mac)
-- Click 'Run Main' (Shift+F10 for Windows & ^+R for Mac)
+![run build script](/img/readme-images/run-build-script.gif)
 
-If an error occurs with the Test classes, open any one of the test classes and 
-right-click on the red import method. Select the import junit5.
-
-TESTING WITH A FAKE DATABASE - OPTIONAL
-- In your file manager, open the "CAB302_StonkMachine" folder and navigate to:
+## Using a mock database - OPTIONAL
+- In your file manager, open the project directory called *"stonk-machine"*.
+- You will see a mock database called *"MockStonkMachine.db"*.
+- Rename this database to *"StonkMachine.db"* instead and place inside the 
 
         CAB302_Assignment-1 > Setup > ServerSettings.props
 
@@ -84,6 +75,30 @@ TESTING WITH A FAKE DATABASE - OPTIONAL
 - Save and close file
 - Run via the instructions above
 - To revert, change SCHEMA to "StonkMachine"
+
+## Troubleshooting
+This section is for rare cases / reconfiguring *IntelliJ* for future developments on this project.
+
+- Specify a project SDK, we recommend *Amazon Correto 15* although you may be able to use other version 15s `File > Project Structure > Project section > Project SDK`
+- Beneath, set Project Language Level to *15 - Text blocks*.
+
+![What your Project SDK should look like](/img/readme-images/project-SDK.png)
+
+- Still inside the Project Structure window, goto the Libraries section and you may also need to add the following from *Maven*:
+    - org.junit.platform:junit-platform-launcher:1.7.0
+    - org.xerial:sqlite-jdbc:3.34.0
+
+![What your Libraries should look like](/img/readme-images/libraries.png)
+
+- You may need to import *JUnit 5.7* if an error occurs with the test classes.
+- If so, open any one of the test classes and right-click on the red *JUni Jupitert* import line at the top of the file.
+- Select *"import junit5"*
+
+![How to import JUnit 5.7](/img/readme-images/import-junit.png)
+
+- Finally, if you are still having issues, check the Modules section in the Project Structure window.
+
+![What your Modules section should look like](/img/readme-images/modules.png)
 
 # Diagrams
 ## UML Class Diagram
@@ -96,9 +111,4 @@ TESTING WITH A FAKE DATABASE - OPTIONAL
 ![Database ERD](/docs/diagrams/Database-ERD.png)
 
 # Dependencies
-This app was developed using the *JetBrains' IntelliJ IDE*. If you want to run the *Ant* build script, please open the project folder *"stonk-machine"* using *IntelliJ*. Once in *IntelliJ*, please go to the Project Structure window and set the project SDK to *Amazon Correto 15* and the project language level to *"15 - Text blocks"* as this is needed to compile. Still within the Project Structure window, goto the Libraries section and you will also need to add the following from *Maven*:
-
-- org.junit.platform:junit-platform-launcher:1.7.0
-- org.xerial:sqlite-jdbc:3.34.0
-
-Finally, you may need to import JUnit 5.7. FIX THIS
+This app was developed using the *JetBrains' IntelliJ IDE*. If you want to run the *Ant* build script, please open the project folder *"stonk-machine"* using *IntelliJ*. If you need to configure your IntelliJ to work properly (Project SDK etc) please see [*"Troubleshooting"*](#troubleshooting).
