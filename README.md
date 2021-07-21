@@ -43,10 +43,9 @@ The demonstration below shows a brief look at the admin pages with control panel
 ![run via terminal](/img/readme-images/run-via-terminal.gif)
 
 # How to build a new jar via *Ant* in *IntelliJ*
-INSTRUCTIONS:
 
-- Please download "IntelliJ IDEA Community Edition" to run our app https://www.jetbrains.com/idea/download/#section=windows
-- In your file manager, open the "CAB302_StonkMachine" folder and navigate to:
+- Download [JetBrain's IntelliJ IDEA](https://www.jetbrains.com/idea/download/#section=windows), *Community Edition* is free.
+- In your file manager, open the project directory called *"stonk-machine"* then .
 
         CAB302_Assignment-1 > Setup > ServerSettings.props
 
