@@ -24,6 +24,8 @@ The data must all be stored in the server-side database.
 | Read config file            | System reads config file to get Client's currently connected port| Could have |
 | Database                    | All data stored in one place for easy back-up (SQLite) | Must have |
 
+<br/><br/>
+
 Briefly recapping the server-side core functionality table above.
 - **Usernames** must be unique
 - **Passwords** should be unique, complex & hashed with a SALT
@@ -200,7 +202,7 @@ If a buy order exceeds the total credits of the buyer's organisational unit, or 
 Users should be able to view a list of current orders that have not yet been processed. Using this list users should be able to cancel an order. 
 
 A graph showing the historical trading data for the given asset. The graph should contain the following items:
-- X Axis - Date & Time
+- X Axis - Orders
 - Y Axis - Price
 
 Current offers including:
@@ -234,14 +236,8 @@ Administrators are to have the ability to:
 
 ## GUI Requirements
 - Users to receive a message upon fulfilment of an order.
-- Current orders graph 
-
-![img.png](../Images/GUI%20References/img.png)
-
+- Current orders graph
 - Historical trades Graph
-
-![img_1.png](../Images/GUI%20References/img_1.png)
-
 
 ## Additional Documentation
 ### Configuration File
