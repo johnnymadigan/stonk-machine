@@ -26,6 +26,7 @@ public class TestUnit {
     Asset mockAsset2;
     Asset mockAsset3;
 
+    // ============== BEFORE EACH TEST ==============
     /**
      * Before each test, create a unit with mock a asset
      * @throws IllegalString if unit name is not valid
@@ -41,6 +42,7 @@ public class TestUnit {
         mockUnit = new Unit("mockUnit", 100, mockAssets);
     }
 
+    // ============== AFTER EACH TEST ==============
     /**
      * After each test, reset the mock unit and asset
      */
@@ -53,6 +55,7 @@ public class TestUnit {
 
     }
 
+    // ============== TESTS ==============
     /**
      * Test that units are constructed correctly
      */

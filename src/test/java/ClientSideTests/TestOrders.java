@@ -97,6 +97,7 @@ public class TestOrders {
         }
     }
 
+    // ============== BEFORE EACH TEST ==============
     /**
      * Ensure that the orders table does not contain any outstanding orders that may affect the tests.
      * Ensur that users are setup correctly for the tests.
@@ -135,6 +136,7 @@ public class TestOrders {
 
     }
 
+    // ============== TESTS ==============
     /**
      * Test that orders are created correctly
      */
@@ -232,7 +234,7 @@ public class TestOrders {
     @Test
     public void TestBuyTooExpensive() {
         Order tooExpensive = new Order(JohnDoe.getUnit(), ABC, 5, 999, buy);
-        assertThrows(OrderException.class, () -> {data.addOrder(tooExpensive);});
+        assertThrows(OrderException.class, () -> data.addOrder(tooExpensive));
     }
 
     /**
@@ -241,7 +243,7 @@ public class TestOrders {
     @Test
     public void TestBuyTooMany() {
         Order testBuyOrder = new Order(JohnDoe.getUnit(), ABC, 500, 10, buy);
-        assertThrows(OrderException.class, () -> {data.addOrder(testBuyOrder);});
+        assertThrows(OrderException.class, () -> data.addOrder(testBuyOrder));
     }
 
     /**
@@ -253,8 +255,8 @@ public class TestOrders {
         Order testBuyOrder = new Order(JohnDoe.getUnit(), XYZ, 5, 10, buy);
         Order testSellOrder = new Order(JohnDoe.getUnit(), XYZ, 5, 10, sell);
 
-        assertThrows(DoesNotExist.class, () -> {data.addOrder(testBuyOrder);}); // Test that an exception is thrown if not application asset list
-        assertThrows(OrderException.class, () -> {data.addOrder(testSellOrder);}); // Test that exception is thrown if not in units asset list
+        assertThrows(DoesNotExist.class, () -> data.addOrder(testBuyOrder)); // Test that an exception is thrown if not application asset list
+        assertThrows(OrderException.class, () -> data.addOrder(testSellOrder)); // Test that exception is thrown if not in units asset list
     }
 
     /**

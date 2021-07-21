@@ -21,6 +21,7 @@ public class TestUser {
     User mockUser;
     Unit mockUnit;
 
+    // ============== BEFORE EACH TEST ==============
     /**
      * Before each test, create a mock user and unit
      * @throws IllegalString Throw an exception if a parameter is invalid
@@ -33,13 +34,13 @@ public class TestUser {
         String password = "bo$$man";
         String salt = HashPassword.generateSALT(username);
         String hashedPassword = HashPassword.hashPassword(password, salt);
-        boolean access = true;
 
         String unitname = "developers";
         mockUnit = new Unit(unitname, 999, null);
-        mockUser = new User(username, hashedPassword, salt, null, access);
+        mockUser = new User(username, hashedPassword, salt, null, true);
     }
 
+    // ============== AFTER EACH TEST ==============
     /**
      * After each test, reset the mock user and unit
      */
@@ -50,6 +51,7 @@ public class TestUser {
         mockUnit = null;
     }
 
+    // ============== TESTS ==============
     /**
      * Testing the User constructor works via the getters
      */

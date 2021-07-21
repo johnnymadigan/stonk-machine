@@ -16,6 +16,7 @@ public class TestHashPassword {
     String scottSalt;
     String alistairSalt;
 
+    // ============== BEFORE EACH TEST ==============
     /**
      * Before each test create a new unique yet random SALT string
      * in-case any test modifies one.
@@ -28,6 +29,7 @@ public class TestHashPassword {
         alistairSalt = HashPassword.generateSALT("alistair");
     }
 
+    // ============== TESTS ==============
     /**
      * Test if the SALT generator concatenates any username to the end
      */
@@ -95,11 +97,10 @@ public class TestHashPassword {
     /**
      * Tests if the IllegalString exception is thrown whenever the password is invalid.
      * Invalid passwords are those with white-spaces.
-     * @throws IllegalString if the password is invalid
      */
     @Test
     @DisplayName("Tests if the given password does not meet the requirements")
-    public void testInvalidPassword() throws IllegalString {
+    public void testInvalidPassword() {
         assertThrows(IllegalString.class, () ->
                 HashPassword.hashPassword("p ass w o r d", johnnySalt));
     }

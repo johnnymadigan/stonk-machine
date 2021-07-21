@@ -9,10 +9,11 @@ import ClientSide.Unit;
 import ClientSide.User;
 import ServerSide.MockObjects;
 import ServerSide.NetworkConnection;
-import ServerSide.Server;
-import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Nested;
+import org.junit.jupiter.api.Test;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
@@ -33,20 +34,18 @@ public class TestNetworkConnection {
     NetworkConnection data = new NetworkConnection();
     MockObjects mock = new MockObjects(data);
 
-
-
-    // BEFORE EACH TEST-------------------------------------------------------------------------------------------------
-
+    // ============== BEFORE EACH TEST ==============
     /**
      * Reset the mock objects for testing
      */
     @BeforeEach
     @DisplayName("Before each...")
-    public void before() throws IOException {
+    public void before() {
         mock.killMockDatabase();
         mock.createMockDatabase();
     }
 
+    // ============== USER INTERFACE METHODS TESTS ==============
     @Nested
     @DisplayName("User interface methods tests")
     class userInterfaceMethodsTests {
@@ -250,6 +249,7 @@ public class TestNetworkConnection {
         }
     }
 
+    // ============== UNIT INTERFACE METHODS TESTS ==============
     @Nested
     @DisplayName("Unit interface methods tests")
     class unitInterfaceMethodsTests {
@@ -452,6 +452,7 @@ public class TestNetworkConnection {
         }
     }
 
+    // ============== ASSET INTERFACE METHODS TESTS ==============
     @Nested
     @DisplayName("Asset interface methods tests")
     class assetInterfaceMethodsTests {
@@ -526,6 +527,7 @@ public class TestNetworkConnection {
         }
     }
 
+    // ============== ORDER INTERFACE METHODS TESTS ==============
     @Nested
     @DisplayName("Order interface methods tests")
     class orderInterfaceMethodsTests {
@@ -559,7 +561,6 @@ public class TestNetworkConnection {
         @DisplayName("Unit historical orders are retrieved from the database correctly")
         public void testGetUnitOrderHistory() {
             int mockOrders = 3; // this is equal to the number of orders created added in MockObjects
-            ArrayList<Order> orders = new ArrayList<>();
             for (Order order : data.getUnitOrders(data.getUnit("developers"))) {
                 data.reconcileOrder(order);
             }
@@ -567,5 +568,4 @@ public class TestNetworkConnection {
             assertEquals(mockOrders, data.getUnitOrderHistory(data.getUnit("developers")).size());
         }
     }
-
 }

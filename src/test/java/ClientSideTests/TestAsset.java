@@ -1,12 +1,10 @@
 package ClientSideTests;
 
 import ClientSide.Asset;
-import ServerSide.Server;
-import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.Test;
 
-import java.io.IOException;
-
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertAll;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * The following tests are used to test the functionality of the Assets class.
@@ -17,8 +15,6 @@ import static org.junit.jupiter.api.Assertions.*;
  * @author Scott Peachey
  */
 public class TestAsset {
-
-
 
     /**
      * Testing the Asset constructor works via the getters
@@ -37,7 +33,4 @@ public class TestAsset {
                 () -> assertEquals("123", mockAsset.getIdString())
                 );
     }
-
 }
-
-
