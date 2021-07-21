@@ -42,7 +42,7 @@
     <!-- GENERATE JAVADOC -->
     <target name="documentation">
         <mkdir dir="docs/javadoc" />
-        <javac srcdir="src" destdir="docs/javadoc" />
+        <javac srcdir="src" destdir="docs/javadoc" includeantruntime="false"/>
     </target>
 
     <!-- GENERATE STANDALONE PROGRAM (JAR) -->
