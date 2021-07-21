@@ -12,7 +12,7 @@ For this assignment a SQLite3 database will be used to store five tables of data
 
 The relationships between these tables can be seen in the below ERD diagram.
 
-![image](Diagrams/ERD_V2.png)
+![image](diagrams/Database-ERD.png)
 
 The database settings such as:
 - Protocol
@@ -22,12 +22,12 @@ The database settings such as:
 - Username 
 - Password
 
-Have been stored in the [ServerSettings.props](Setup/ServerSettings.props) file to 
+Have been stored in the *"ServerSettings.props"* file to 
 allow the administrators adjust the connection details, and database details before 
 installation and deployment.
 
 ### Users Table
-This table is used to store user data. It has five columns:
+This table stores user data. It has five columns:
 - Username (varchar(30), Primary Key)
 - Password (varchar(200))
 - Salt (varchar(30))
@@ -154,10 +154,10 @@ The server ide of the application will be composed of three main classes:
 - [NetworkConnection](#public-class-networkconnection)
 - [ReconcileTrades](#public-class-reconciletrades)
 
-The DBConnection class is used to initialise and create a static instance of a 
+The DBConnection class initialises and creates a static instance of a 
 connection to the database specified during setup.
 
-The NetworkConnection class is used as the main point of connection to the database. 
+The NetworkConnection class is the main point of connection to the database. 
 This class implements the methods outlined in the DatabaseSource interface. The SQL
 commands used to add, remove and update database entries are all stored and created 
 in this class.
@@ -236,10 +236,10 @@ interacting with the database for all assets.
 
 The figure below shows the UML diagram for the application.
 
-![image2](Diagrams/ClassDiagram3.png)
-
 Further details for all the classes in the application can be found in the javadoc for 
 the application.
+
+![image](diagrams/Class-Diagram-V3.png)
 
 ## Package GUI
 
@@ -251,23 +251,16 @@ off to a shell page with a home and search button. Where the inner content will
 either be the user home or admin home. These paths depend on the logged-in user's admin
 privileges.
 
-
-- For the user home, users are greeted with their unit's holdings & credit balance
-From here, users can view their order history and current orders placed by any member of
+- For the user home, users are greeted with their unit's holdings & credit balance. From here, users can view their order history and current orders placed by any member of
   their unit. Since all members of a unit can view all orders of that unit, they will also
   have the ability to cancel orders, allowing for a more connected experience
   between all members of a particular unit.
-
-
+  
 - For the admin home, users will be able to view tables for all users, units, and assets.
   This is a single page but with 3 tabs for each set of data. In each tab below each table is a control 
   panel. This is how admins are able to create and manipulate user accounts, the credit system (via units),
   and assign objects to each other.
   
+- For the asset page, this is accessible through the search button where users can view a graph of the asset and place BUY and SELL orders.
 
-- For the asset page, this is accessible through the search button where users can view a graph of
-the asset and place BUY and SELL orders.
-  
-
-![GUILayout](Diagrams/GUI_Diagram_V2.jpg)
-
+![image](diagrams/GUI-Diagram-V2.jpg)
