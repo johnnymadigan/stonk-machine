@@ -12,6 +12,10 @@
 - [About](#about)
 - [How to run jar via the terminal](#how-to-run-via-the-terminal)
 - [How to build a new jar via *Ant* in *IntelliJ*](#how-to-build-a-new-jar-via-ant-in-intellij)
+  - [Configure Server Settings](#configure-server-settings)
+  - [Build - Clean, Compile, Test, Document, and Create Executable Jar](#build---clean-compile-test-document-and-create-executable-jar)
+  - [Using a mock database - OPTIONAL](#using-a-mock-database---optional)
+  - [Troubleshooting](#troubleshooting)
 - [Diagrams](#diagrams)
   - [UML Class Diagram](#uml-class-diagram)
   - [UI Visual Paradigm](#ui-visual-paradigm)
@@ -42,7 +46,7 @@ The demonstration below shows a brief look at the admin pages with control panel
 
 ![run via terminal](/img/readme-images/run-via-terminal.gif)
 
-# How to build a new jar via *Ant* in *IntelliJ*
+# How to build a new JAR via *Ant* in *IntelliJ*
 ## Configure Server Settings
 - In your file manager, open the project directory called *"stonk-machine"* then navigate to the server settings properties file `src > main > java > ServerSide > ServerSettings.props`. Open the file in your preferred text editor.
 
@@ -54,7 +58,7 @@ The demonstration below shows a brief look at the admin pages with control panel
     - Set your preferred PASSWORD
 - Save and close file
 
-## Build - Clean, Compile, Test, Document, and Create Executable Jar
+## Build - Clean, Compile, Test, Document, and Create Executable JAR
 - Download [JetBrain's IntelliJ IDEA](https://www.jetbrains.com/idea/download/#section=windows), *Community Edition* is free.
 - Open the project directory called *"stonk-machine"* inside *IntelliJ*.
 - Open the *Ant* window `View > Tool Windows > Ant`
@@ -64,17 +68,10 @@ The demonstration below shows a brief look at the admin pages with control panel
 ![run build script](/img/readme-images/run-build-script.gif)
 
 ## Using a mock database - OPTIONAL
+- First backup your current database by saving a copy of it somewhere else.
 - In your file manager, open the project directory called *"stonk-machine"*.
 - You will see a mock database called *"MockStonkMachine.db"*.
-- Rename this database to *"StonkMachine.db"* instead and place inside the 
-
-        CAB302_Assignment-1 > Setup > ServerSettings.props
-
-- Open this file in your preferred text editor
-- Change the SCHEMA to "MockStonkMachine" to test our app with a fake database
-- Save and close file
-- Run via the instructions above
-- To revert, change SCHEMA to "StonkMachine"
+- Rename this database to *"StonkMachine.db"* instead and replace/place inside the *"Artifacts"* folder beside the JAR.
 
 ## Troubleshooting
 This section is for rare cases / reconfiguring *IntelliJ* for future developments on this project.
