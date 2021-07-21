@@ -13,8 +13,8 @@
 - [How to run jar via the terminal](#how-to-run-via-the-terminal)
 - [How to build a new jar via *Ant* in *IntelliJ*](#how-to-build-a-new-jar-via-ant-in-intellij)
   - [Configure Server Settings](#configure-server-settings)
-  - [Build - Clean, Compile, Test, Document, and Create Executable Jar](#build---clean-compile-test-document-and-create-executable-jar)
-  - [Using a mock database - OPTIONAL](#using-a-mock-database---optional)
+  - [BUILD - Clean, Compile, Test, Document, and Create Executable Jar](#build---clean-compile-test-document-and-create-executable-jar)
+  - [OPTIONAL - Using a mock database](#optional---using-a-mock-database)
   - [Troubleshooting](#troubleshooting)
 - [Diagrams](#diagrams)
   - [UML Class Diagram](#uml-class-diagram)
@@ -40,7 +40,7 @@ The demonstration below shows a brief look at the admin pages with control panel
 # How to run via the terminal
 
 - Launch your OS' terminal.
-- Navigate into the project directory called *"stonk-machine"* with the `cd` command.
+- Navigate into the *"stonk-machine"* project directory with the `cd` command.
 - Navigate into the *"artifacts"* folder.
 - Type `java -jar stonk-machine.jar` then press the <kbd>enter</kbd> or <kbd>return</kbd> key to launch the program.
 
@@ -48,17 +48,17 @@ The demonstration below shows a brief look at the admin pages with control panel
 
 # How to build a new JAR via *Ant* in *IntelliJ*
 ## Configure Server Settings
-- In your file manager, open the project directory called *"stonk-machine"* then navigate to the server settings properties file `src > main > java > ServerSide > ServerSettings.props`. Open the file in your preferred text editor.
-
-![find and edit properties file](/img/readme-images/nav-to-props.gif)
-
+- In your file manager, open the *"stonk-machine"* project directory, then navigate to the server settings properties file `src > main > java > ServerSide > ServerSettings.props`
+- Open the file in your preferred text editor.
 - (OPTIONAL) Change PORT/HOST details if necessary
 - (REQUIRED) Setup initial admin user credentials
     - Set your preferred USERNAME
     - Set your preferred PASSWORD
 - Save and close file
 
-## Build - Clean, Compile, Test, Document, and Create Executable JAR
+![find and edit properties file](/img/readme-images/nav-to-props.gif)
+
+## BUILD - Clean, Compile, Test, Document, and Create Executable JAR
 - Download [JetBrain's IntelliJ IDEA](https://www.jetbrains.com/idea/download/#section=windows), *Community Edition* is free.
 - Open the project directory called *"stonk-machine"* inside *IntelliJ*.
 - Open the *Ant* window `View > Tool Windows > Ant`
@@ -67,11 +67,11 @@ The demonstration below shows a brief look at the admin pages with control panel
 
 ![run build script](/img/readme-images/run-build-script.gif)
 
-## Using a mock database - OPTIONAL
-- First backup your current database by saving a copy of it somewhere else.
-- In your file manager, open the project directory called *"stonk-machine"*.
-- You will see a mock database called *"MockStonkMachine.db"*.
-- Rename this database to *"StonkMachine.db"* instead and replace/place inside the *"artifacts"* folder beside the JAR.
+## OPTIONAL - Using a mock database
+- First, backup your current database by saving a copy of it somewhere else.
+- In your file manager, open the *"stonk-machine"* project directory.
+- You will see a mock database called *"MockStonkMachine.db"*, make a copy of it.
+- Rename this database to *"StonkMachine.db"* and replace/place inside the *"artifacts"* folder beside the JAR.
 
 ## Troubleshooting
 This section is for rare cases / reconfiguring *IntelliJ* for future developments on this project.
@@ -89,7 +89,7 @@ This section is for rare cases / reconfiguring *IntelliJ* for future development
 
 - You may need to import *JUnit 5.7* if an error occurs with the test classes.
 - If so, open any one of the test classes and right-click on the red *JUni Jupitert* import line at the top of the file.
-- Select *"import junit5"*
+- Select *import junit5*
 
 ![How to import JUnit 5.7](/img/readme-images/import-junit.png)
 
