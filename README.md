@@ -1,4 +1,4 @@
-![unit](https://img.shields.io/badge/CAB302-Software%20Development-ff69b4?style=plastic)
+![unit](https://img.shields.io/badge/CAB3O2-Software%20Development-ff69b4?style=plastic)
 ![author](https://img.shields.io/badge/Author-Johnny%20Madigan-yellow?style=plastic)
 ![year](https://img.shields.io/badge/Year-2021-lightgrey?style=plastic)
 ![IntelliJ](https://img.shields.io/badge/IntelliJ-Community-blueviolet?style=plastic&logo=IntelliJ%20IDEA)
@@ -7,7 +7,7 @@
 ![SQLite](https://img.shields.io/badge/SQLite%20JDBC-3.34.0-blue?style=plastic&logo=SQLite)
 ![Apache Ant](https://img.shields.io/badge/Apache%20Ant-critical?style=plastic&logo=Apache%20Ant)
 
-<p align="center">𝔍𝔬𝔥𝔫𝔫𝔶 𝔐𝔞𝔡𝔦𝔤𝔞𝔫 🐰</p>
+<p align="center">𝔍𝔬𝔥𝔫𝔫𝔶 𝔐𝔞𝔡𝔦𝔤𝔞𝔫</p>
 
 - [About](#about)
 - [How to run jar via the terminal](#how-to-run-via-the-terminal)
