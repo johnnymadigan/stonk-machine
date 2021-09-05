@@ -7,8 +7,6 @@
 ![SQLite](https://img.shields.io/badge/SQLite%20JDBC-3.34.0-blue?style=plastic&logo=SQLite)
 ![Apache Ant](https://img.shields.io/badge/Apache%20Ant-critical?style=plastic&logo=Apache%20Ant)
 
-<p align="center">𝔍𝔬𝔥𝔫𝔫𝔶 𝔐𝔞𝔡𝔦𝔤𝔞𝔫</p>
-
 - [About](#about)
 - [How to run jar via the terminal](#how-to-run-via-the-terminal)
 - [How to build a new jar via *Ant* in *IntelliJ*](#how-to-build-a-new-jar-via-ant-in-intellij)
@@ -23,17 +21,17 @@
 - [Dependencies](#dependencies)
 
 # About
-### A solo extension on my team's software development project: an electronic trading app
+### A CLIENT-SERVER ELECTRONIC TRADING APP
 
 <p align="center"><em>Team: Johnny Madigan, Scott Peachey, and Alistair Ridge</em></p>
 
-A software development project focusing on delivering an application fulfilling a client's needs. The project was initially developed by a team of 3 using an Agile approach with an emphasis on Test-Driven-Development.
+A client-server system for electronic trading of virtual assets. My team and I achieved this using an Agile approach with an emphasis on Test-Driven-Development. 
 
-My team and I were contracted to develop a *"client-server system for electronic trading of virtual assets within their organisation"*. Given a series of user stories, we've extracted a list of requirements prioritised using the MoSCoW method. We then put together a detailed design document of the system along with 3 diagrams (UML class diagram, UI visual paradigm, and a database ERD). As we developed our app using *Java* and *IntelliJ*, we incrementally tested our features with black box and glass box testing.
+Given a series of user stories, we've extracted a list of requirements prioritised using the MoSCoW method. We then put together a detailed design document of the system along with 3 diagrams (UML class diagram, UI visual paradigm, and a database ERD). As we implemented our app using *Java* with *IntelliJ*, we incrementally tested our features with black box and glass box testing.
 
-While working with my team I had the pleasure of developing a segment of the app. I primarily focused on user accounts, implementing for both front-end and back-end features, using *Java Swing* for the GUI and *SQLite* for the database. Admins have the ability to add or delete users, units, and assets while also being able to update existing data. General user accounts have the ability to view their unit's current balance, holdings, and order history. Both types of accounts are able to change their own passwords using a self-service, and also view a dynamic graph showing the prices of an asset. 
+I primarily focused on user accounts, implementing for both front-end and back-end features (Java Swing for the GUI and SQLite for the database). The demonstration below shows a brief look at the admin pages with control panels, then searching for an asset and adjusting the graph's prices before logging out. 
 
-The demonstration below shows a brief look at the admin pages with control panels, then searching for an asset and adjusting the graph's prices before logging out. The dynamic graph was deemed a "could have" based on the client's requirements, and therefore a feature I implemented post-project. I also implemented a new build script with more functionality for continuous integration and deployment (using *Apache Ant* to clean, compile, test, document, and generate a JAR). Finally, I created this README to be more informative with the instructions below as well as better showcasing the app.
+For a solo extension on the project, I added a dynamic graph, a README to document the app with instructions, and a new build script for continuous integration and deployment (*Apache Ant* to clean, compile, test, document, and generate a JAR). 
 
 ![project animation](/img/readme-images/ezgif-demonstration.gif)
 
