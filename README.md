@@ -20,8 +20,8 @@
   - [Database ERD](#database-erd)
 - [Dependencies](#dependencies)
 
-# About
-### A CLIENT-SERVER ELECTRONIC TRADING APP
+# **About**
+### **A CLIENT-SERVER ELECTRONIC TRADING APP**
 
 <p align="center"><em>Team: Johnny Madigan, Scott Peachey, and Alistair Ridge</em></p>
 
@@ -35,7 +35,7 @@ For a solo extension on the project, I added a dynamic graph, a README to docume
 
 ![project animation](/img/readme-images/ezgif-demonstration.gif)
 
-# How to run via the terminal
+# **How to run via the terminal**
 
 - Launch your OS' terminal.
 - Navigate into the *"stonk-machine"* project directory with the `cd` command.
@@ -44,8 +44,8 @@ For a solo extension on the project, I added a dynamic graph, a README to docume
 
 ![run via terminal](/img/readme-images/run-via-terminal.gif)
 
-# How to build a new JAR via *Ant* in *IntelliJ*
-## Configure Server Settings
+# **How to build a new JAR via *Ant* in *IntelliJ***
+## **Configure Server Settings**
 - In your file manager, open the *"stonk-machine"* project directory, then navigate to the server settings properties file `src > main > java > ServerSide > ServerSettings.props`
 - Open the file in your preferred text editor.
 - (OPTIONAL) Change PORT/HOST details if necessary
@@ -56,7 +56,7 @@ For a solo extension on the project, I added a dynamic graph, a README to docume
 
 ![find and edit properties file](/img/readme-images/nav-to-props.gif)
 
-## BUILD - Clean, Compile, Test, Document, and Create Executable JAR
+## **BUILD - Clean, Compile, Test, Document, and Create Executable JAR**
 - Download [JetBrain's IntelliJ IDEA](https://www.jetbrains.com/idea/download/#section=windows), *Community Edition* is free.
 - Open the project directory called *"stonk-machine"* inside *IntelliJ*.
 - Open the *Ant* window `View > Tool Windows > Ant`
@@ -65,13 +65,13 @@ For a solo extension on the project, I added a dynamic graph, a README to docume
 
 ![run build script](/img/readme-images/run-build-script.gif)
 
-## OPTIONAL - Using a mock database
+## **OPTIONAL - Using a mock database**
 - First, backup your current database by saving a copy of it somewhere else.
 - In your file manager, open the *"stonk-machine"* project directory.
 - You will see a mock database called *"MockStonkMachine.db"*, make a copy of it.
 - Rename this database to *"StonkMachine.db"* and replace/place inside the *"artifacts"* folder beside the JAR.
 
-## Troubleshooting
+## **Troubleshooting**
 This section is for rare cases / reconfiguring *IntelliJ* for future developments on this project.
 
 - Specify a project SDK, we recommend *Amazon Correto 15* although you may be able to use other version 15s `File > Project Structure > Project section > Project SDK`
@@ -95,15 +95,15 @@ This section is for rare cases / reconfiguring *IntelliJ* for future development
 
 ![What your Modules section should look like](/img/readme-images/modules.png)
 
-# Diagrams
-## UML Class Diagram
+# **Diagrams**
+## **UML Class Diagram**
 ![UML Class Diagram](/docs/diagrams/Class-Diagram-V3.png)
 
-## UI Visual Paradigm
+## **UI Visual Paradigm**
 ![UI Visual Paradigm](/docs/diagrams/GUI-Diagram-V2.jpg)
 
-## Database ERD
+## **Database ERD**
 ![Database ERD](/docs/diagrams/Database-ERD.png)
 
-# Dependencies
+# **Dependencies**
 This app was developed using the *JetBrains' IntelliJ IDE*. If you want to run the *Ant* build script, please open the project folder *"stonk-machine"* using *IntelliJ*. If you need to configure your IntelliJ to work properly (Project SDK etc) please see [*"Troubleshooting"*](#troubleshooting).
