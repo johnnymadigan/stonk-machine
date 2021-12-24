@@ -1,4 +1,4 @@
-![unit](https://img.shields.io/badge/CAB3O2-Software%20Development-ff69b4?style=plastic)
+![unit](https://img.shields.io/badge/Unit-Software%20Development-ff69b4?style=plastic)
 ![author](https://img.shields.io/badge/Author-Johnny%20Madigan-yellow?style=plastic)
 ![year](https://img.shields.io/badge/Year-2021-lightgrey?style=plastic)
 ![IntelliJ](https://img.shields.io/badge/IntelliJ-Community-blueviolet?style=plastic&logo=IntelliJ%20IDEA)
