@@ -1,5 +1,5 @@
 ![year](https://img.shields.io/badge/Year-2021-lightgrey?style=plastic)
-![author](https://img.shields.io/badge/Author-Johnny,%20Scott,%20Alistair-yellow?style=plastic)
+![author](https://img.shields.io/badge/Authors-Johnny,%20Scott,%20Alistair-yellow?style=plastic)
 ![IntelliJ](https://img.shields.io/badge/IntelliJ-blueviolet?style=plastic&logo=IntelliJ%20IDEA)
 ![Java SDK](https://img.shields.io/badge/Amazon%20Correto%2015%20(Java%20SDK)-orange?style=plastic&logo=Java)
 ![JUnit5](https://img.shields.io/badge/JUnit5-green?style=plastic&logo=JUnit5)
