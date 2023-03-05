@@ -1,12 +1,11 @@
-![year](https://img.shields.io/badge/Year-2021-lightgrey?style=plastic)
-![author](https://img.shields.io/badge/Authors-Johnny,%20Scott,%20Alistair-yellow?style=plastic)
+![year](https://img.shields.io/badge/2021-lightgrey?style=plastic)
+![creators](https://img.shields.io/badge/Johnny,%20Scott,%20Alistair-yellow?style=plastic)
 ![IntelliJ](https://img.shields.io/badge/IntelliJ-blueviolet?style=plastic&logo=IntelliJ%20IDEA)
 ![Java SDK](https://img.shields.io/badge/Amazon%20Correto%2015%20(Java%20SDK)-orange?style=plastic&logo=Java)
 ![JUnit5](https://img.shields.io/badge/JUnit5-green?style=plastic&logo=JUnit5)
 ![SQLite](https://img.shields.io/badge/SQLite%20JDBC-blue?style=plastic&logo=SQLite)
 ![Apache Ant](https://img.shields.io/badge/Apache%20Ant-critical?style=plastic&logo=Apache%20Ant)
 
-- [About](#about)
 - [How to run jar via the terminal](#how-to-run-via-the-terminal)
 - [How to build a new jar via *Ant* in *IntelliJ*](#how-to-build-a-new-jar-via-ant-in-intellij)
   - [Configure Server Settings](#configure-server-settings)
@@ -19,8 +18,7 @@
   - [Database ERD](#database-erd)
 - [Dependencies](#dependencies)
 
-# **About**
-### **A CLIENT-SERVER ELECTRONIC TRADING APP**
+# **ELECTRONIC TRADING APP**
 
 <p align="center"><em>Team: Johnny Madigan, Scott Peachey, and Alistair Ridge</em></p>
 
